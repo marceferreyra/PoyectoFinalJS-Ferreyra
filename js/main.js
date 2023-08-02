@@ -1,26 +1,57 @@
-/*function saludar() {
-    console.log("hello");
-}
+let ingreso;
+let contador = 0;
 
-function saludoPerzonalizado (nombre){
-    console.log("hola " + nombre) ;
-}
 
-saludoPerzonalizado("Pipi")*/
+while (contador < 3) {
+    ingreso = prompt(`Selecciona tus fragancias (puedes elegir hasta tres):\n1- Florales\n2- Amaderadas\n3- Frutales\n4- Cítricas\n5-Refrescantes \n6- Ahumadas \n0-Listo`);
 
-let numero1 = parseInt (prompt("ingresa un numero"))
-let numero2 = parseInt (prompt("ingresa un numero"))
-
-function suma(num1, num2) {
-    if(isNaN(num1) || isNaN(num2)) {
-        mensaje("No son numeros");
-    }else{
-        mensaje ("la suma es: " + (num1 + num2));
+    switch (ingreso) {
+        case "1":
+            alert("Seleccionaste Florales");
+            contador++;
+            break;
+        case "2":
+            alert("Seleccionaste Amaderadas");
+            contador++;
+            break;
+        case "3":
+            alert("Seleccionaste Frutales");
+            contador++;
+            break;
+        case "4":
+            alert("Seleccionaste Cítricas")
+            contador++;
+            break;
+        case "5":
+            alert("Seleccionaste Refrescantes")
+            contador++;
+            break;
+        case "6":
+            alert("Seleccionaste Ahumadas")
+            contador++;
+            break;
+        case "0":
+            alert("Listo")
+            contador++;
+            break;
+        default:
+            alert("Opción no váalida")
+            break;
     }
 }
 
-function mensaje(mensaje) {
-    console.log (mensaje);
+if (ingreso === "1" || ingreso === "4" || ingreso === "0") {
+    alert("Te recomendamos Dior Eau de Parfum Sauvage");
 }
 
-suma(numero1, numero2);
+else if (ingreso === "4" || ingreso === "6" || ingreso === "2") {
+    alert("Te recomendamos Eau de Parfum Boss Bottled Parfum");
+}
+
+else if (ingreso === "4" || ingreso === "5" || ingreso === "2") {
+    alert("Te recomendamos Lacoste L.12.12 Blanc");
+}
+
+else if (ingreso === "1" || ingreso === "5" || ingreso === "0") {
+    alert("Te recomendamos Gentleman Gyvenchi");
+}
