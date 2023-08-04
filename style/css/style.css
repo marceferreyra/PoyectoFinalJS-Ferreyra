@@ -1,0 +1,11 @@
+#fraganciasHombre {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+div .card {
+  margin-top: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */
