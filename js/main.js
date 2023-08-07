@@ -8,51 +8,50 @@ let seleccionRefrescante = false
 let seleccionAhumadas = false
 let seleccionListo = false
 
-while (contador < 3) {
-    ingreso = prompt(`Selecciona tus fragancias (puedes elegir hasta tres):\n1- Florales\n2- Amaderadas\n3- Frutales\n4- Cítricas\n5-Refrescantes \n6- Ahumadas \n0-Listo`);
+for (let contador = 1; contador <= 3;) {
+    ingreso = prompt(`Selecciona tus fragancias (puedes elegir hasta tres):\n1- Florales\n2- Amaderadas\n3- Frutales\n4- Cítricas\n5- Refrescantes\n6- Ahumadas\n0- Listo`);
 
     switch (ingreso) {
         case "1":
             alert("Seleccionaste Florales");
-            seleccionFlorales = true
+            seleccionFlorales = true;
             contador++;
             break;
         case "2":
             alert("Seleccionaste Amaderadas");
-            seleccionAmaderadas = true
+            seleccionAmaderadas = true;
             contador++;
             break;
         case "3":
             alert("Seleccionaste Frutales");
-            seleccionFrutales = true
+            seleccionFrutales = true;
             contador++;
             break;
         case "4":
-            alert("Seleccionaste Cítricas")
-            seleccionCítricas = true
+            alert("Seleccionaste Cítricas");
+            seleccionCítricas = true;
             contador++;
             break;
         case "5":
-            alert("Seleccionaste Refrescantes")
-            seleccionRefrescante = true
+            alert("Seleccionaste Refrescantes");
+            seleccionRefrescante = true;
             contador++;
             break;
         case "6":
-            alert("Seleccionaste Ahumadas")
-            seleccionAhumadas = true
+            alert("Seleccionaste Ahumadas");
+            seleccionAhumadas = true;
             contador++;
             break;
         case "0":
-            alert("Listo")
-            seleccionListo = true
+            alert("Listo");
+            seleccionListo = true;
             break;
         default:
-            alert("Opción no válida")
+            alert("Opción no válida");
             break;
     }
-
     if (ingreso === "0") {
-        break;
+        break; 
     }
 }
 
@@ -66,7 +65,7 @@ if (seleccionFlorales && seleccionCítricas && seleccionAhumadas) {
     comprarRecomendacion("Polo Blue Ralph Lauren", 54315);
 } else if (seleccionFlorales && seleccionFrutales && seleccionAmaderadas) {
     comprarRecomendacion("One Million", 52550);
-} else if (seleccionCítricas && seleccionFlorales && seleccionAmaderadas) {
+} else if (seleccionAmaderadas && seleccionFlorales && seleccionRefrescante) {
     comprarRecomendacion("L´Homme Yves Saint Laurent", 59415);
 } else if (seleccionRefrescante && seleccionCítricas && seleccionAhumadas) {
     comprarRecomendacion("Dolce & Gabbana Light Blue Pour Homme", 60750);
@@ -79,7 +78,7 @@ if (seleccionFlorales && seleccionCítricas && seleccionAhumadas) {
 } else if (seleccionAmaderadas && seleccionCítricas && seleccionListo) {
     comprarRecomendacion("Dior Eau de Parfum Sauvage", 67000);
 } else {
-    alert("Tus preferencias han sido registradas");
+    alert("Lo senitmos!! \nNo tenemos fragancias con tus preferencias en estos momentos");
 }
 
 function comprarRecomendacion(producto, precio) {
@@ -92,7 +91,7 @@ function comprarRecomendacion(producto, precio) {
                 break;
             case "2":
                 opcion = false;
-                alert("Tus preferencias han sido registradas.");
+                alert("Gracias, tus preferencias han sido registradas. ");
                 return;
             default:
                 alert("Opción no válida. Por favor, seleccione '1' para Si o '2' para No.");
@@ -162,7 +161,7 @@ function comprarRecomendacion(producto, precio) {
                 break;
             case "2":
                 confirmarCompra = false;
-                alert("Tus preferencias han sido registradas.");
+                alert("Gracias, puedes finalizar tu compra en otro momento.");
                 break;
             default:
                 alert("Opción no válida. Por favor, seleccione '1' para Si o '2' para No.");
