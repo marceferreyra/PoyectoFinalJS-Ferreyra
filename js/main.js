@@ -47,7 +47,7 @@ while (contador < 3) {
             seleccionListo = true
             break;
         default:
-            alert("Opción no váalida")
+            alert("Opción no válida")
             break;
     }
 
@@ -105,7 +105,7 @@ function comprarRecomendacion(producto, precio) {
         let cantidad;
         while (true) {
             cantidad = parseInt(prompt("Ingrese la cantidad que desea comprar:"));
-            if (!isNaN(cantidad) && cantidad > 0) {
+            if (isNaN(cantidad) === false && cantidad > 0) {
                 break;
             }
             alert("Por favor, ingrese una cantidad válida mayor que cero.");
@@ -124,39 +124,54 @@ function comprarRecomendacion(producto, precio) {
                 pagarEnCuotas = false;
                 break;
         }
-
+        let cuotasSeleccionadas;
         if (pagarEnCuotas) {
-            let cuotasSeleccionadas;
-            switch (prompt("Seleccione la cantidad de cuotas. \n1- 1 cuota sin interés \n2- 3 cuotas sin interés \n3- 6 cuotas (8% de interés) \n4- 12 cuotas (12% de interés)")) {
+            switch (prompt("Seleccione la cantidad de cuotas. \n1- 3 cuotas sin interés \n2- 6 cuotas (10% de interés) \n3- 12 cuotas (20% de interés)")) {
                 case "1":
-                    cuotasSeleccionadas = 1;
-                    break;
-                case "2":
                     cuotasSeleccionadas = 3;
                     break;
-                case "3":
+                case "2":
                     cuotasSeleccionadas = 6;
                     break;
-                case "4":
+                case "3":
                     cuotasSeleccionadas = 12;
                     break;
                 default:
                     alert("Opción no válida. Por favor, seleccione una cantidad de cuotas válida");
-                    cuotasSeleccionadas = 0; // Establecemos un valor por defecto si la opción es inválida
             }
-
-            if (cuotasSeleccionadas === 1) {
-                alert(`Vas a pagar $${precio}`);
-            } else if (cuotasSeleccionadas === 3) {
-                let montoCuota = precio / cuotasSeleccionadas;
-                alert(`Vas a pagar $${montoCuota.toFixed(2)} por 3 cuotas`);
-            } else if (cuotasSeleccionadas === 6) {
-                let montoCuota = (precio * 1.08) / cuotasSeleccionadas;
-                alert(`Vas a pagar $${montoCuota.toFixed(2)} por 6 cuotas`);
-            } else if (cuotasSeleccionadas === 12) {
-                let montoCuota = (precio * 1.12) / cuotasSeleccionadas;
-                alert(`Vas a pagar $${montoCuota.toFixed(2)} por 12 cuotas`);
-            }
+        } else {
+            alert(`Vas a pagar $${precio * cantidad} en un solo pago`);
         }
+
+        if (cuotasSeleccionadas === 3) {
+            let montoCuota = (precio * cantidad) / cuotasSeleccionadas;
+            alert(`Vas a pagar 3 cuotas de $${montoCuota.toFixed(2)}`);
+        } else if (cuotasSeleccionadas === 6) {
+            let montoCuota = (precio * cantidad * 1.10) / cuotasSeleccionadas;
+            alert(`Vas a pagar 6 cuotas de $${montoCuota.toFixed(2)}`);
+        } else if (cuotasSeleccionadas === 12) {
+            let montoCuota = (precio * cantidad * 1.20) / cuotasSeleccionadas;
+            alert(`Vas a pagar 12 cuotas de $${montoCuota.toFixed(2)}`);
+        }
+    }
+    let confirmarCompra;
+    while (true) {
+        switch (prompt("¿Deseas confirmar la compra?\n1- Si\n2- No")) {
+            case "1":
+                confirmarCompra = true;
+                break;
+            case "2":
+                confirmarCompra = false;
+                alert("Tus preferencias han sido registradas.");
+                break;
+            default:
+                alert("Opción no válida. Por favor, seleccione '1' para Si o '2' para No.");
+                continue;
+        }
+        break;
+    }
+
+    if (confirmarCompra) {
+        alert("¡Muchas gracias por su compra!");
     }
 }
