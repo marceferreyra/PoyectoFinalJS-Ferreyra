@@ -4,11 +4,49 @@
     justify-content: space-around;
 }
 
-div {
-    .card {
-        margin-top: 30px;
-        .img {
-            object-fit: contain;
-        }
-    }
+
+.card {
+    margin-top: 30px;
+    border: 10px solid rgba(250, 247, 247, 0.3);
+    box-shadow: -3px 5px 10px rgba(6, 6, 6, 0.1);
+    border-radius: 10px;
+}
+
+
+.card-img-top {
+    height: 300px;
+    object-fit: unset;
+}
+
+.card-body {
+    height: 150px;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.btn-primary {
+    background-color: black;
+    border-color: black;
+}
+
+h1 {
+    padding: 40px;
+    padding-bottom: 40px;
+    margin-top: 75px;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.navbar-toggler-icon {
+    color: whitesmoke;
+}
+
+.btn.btn-success {
+    background-color: whitesmoke;
+    color: black;
 }
