@@ -7,6 +7,7 @@ let seleccionCítricas = false
 let seleccionRefrescante = false
 let seleccionAhumadas = false
 let seleccionListo = false
+let seRealizoSeleccion = false;
 
 for (let contador = 1; contador <= 3;) {
     ingreso = prompt(`Selecciona tus fragancias (puedes elegir hasta tres):\n1- Florales\n2- Amaderadas\n3- Frutales\n4- Cítricas\n5- Refrescantes\n6- Ahumadas\n0- Listo`);
@@ -16,46 +17,52 @@ for (let contador = 1; contador <= 3;) {
             alert("Seleccionaste Florales");
             seleccionFlorales = true;
             contador++;
+            seRealizoSeleccion = true;
             break;
         case "2":
             alert("Seleccionaste Amaderadas");
             seleccionAmaderadas = true;
             contador++;
+            seRealizoSeleccion = true;
             break;
         case "3":
             alert("Seleccionaste Frutales");
             seleccionFrutales = true;
             contador++;
+            seRealizoSeleccion = true;
             break;
         case "4":
             alert("Seleccionaste Cítricas");
             seleccionCítricas = true;
             contador++;
+            seRealizoSeleccion = true;
             break;
         case "5":
             alert("Seleccionaste Refrescantes");
             seleccionRefrescante = true;
             contador++;
+            seRealizoSeleccion = true;
             break;
         case "6":
             alert("Seleccionaste Ahumadas");
             seleccionAhumadas = true;
             contador++;
+            seRealizoSeleccion = true;
             break;
         case "0":
             alert("Listo");
             seleccionListo = true;
+            contador++;
             break;
         default:
             alert("Opción no válida");
             break;
     }
+
     if (ingreso === "0") {
-        break; 
+        break;
     }
 }
-
-
 
 if (seleccionFlorales && seleccionCítricas && seleccionAhumadas) {
     comprarRecomendacion("Phantom", 54650);
@@ -77,6 +84,8 @@ if (seleccionFlorales && seleccionCítricas && seleccionAhumadas) {
     comprarRecomendacion("Eau de Parfum Boss Bottled Parfum", 63000);
 } else if (seleccionAmaderadas && seleccionCítricas && seleccionListo) {
     comprarRecomendacion("Dior Eau de Parfum Sauvage", 67000);
+} else if (seRealizoSeleccion === false && ingreso === "0") {
+    alert("No has seleccionado ninguna fragancia. Refresca la página si quieres completar tus preferencias.");
 } else {
     alert("Lo senitmos!! \nNo tenemos fragancias con tus preferencias en estos momentos");
 }
