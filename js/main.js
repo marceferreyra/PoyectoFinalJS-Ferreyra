@@ -1,4 +1,4 @@
-let ingreso;
+/*let ingreso;
 let contador = 0;
 let seleccionFlorales = false
 let seleccionAmaderadas = false
@@ -181,5 +181,160 @@ function comprarRecomendacion(producto, precio) {
 
     if (confirmarCompra) {
         alert("¡Muchas gracias por su compra!");
+    }
+}
+*/
+
+const perfumes = [
+    { nombre: "EDP Sauvage Dior", precio: 67000 },
+    { nombre: "EDP Boss Bottled Boss", precio: 63000 },
+    { nombre: "L.12.12 Blanc Lacoste", precio: 35435 },
+    { nombre: "Gentleman Gentleman", precio: 66200 },
+    { nombre: "Light Blue Pour Homme Dolce & Gabbana", precio: 60750 },
+    { nombre: "L´Homme Yves Saint Laurent", precio: 54915 },
+    { nombre: "Polo Blue Ralph Lauren", precio: 54315 },
+    { nombre: "L´eau D´Issey Pour Homme Issey Miyake", precio: 58850 },
+];
+
+perfumes.push({ nombre: "One Million Paco Rabbane", precio: 52550 });
+perfumes.push({ nombre: "Phantom Paco Rabbane", precio: 54650 });
+
+const carrito = [];
+
+while (true) {
+    const opcion = parseInt(prompt("Bienvenido a tu tienda de perfumes online.\nSelecciona una opción:\n\n1- Ver catálogo de perfumes\n2- Buscar un perfume\n3- Ver carrito de compras\n4- Finalizar compra\n5- Salir"));
+
+    if (opcion === 1) {
+        let catalogo = "Catálogo de Perfumes:\n\n";
+        for (let i = 0; i < perfumes.length; i++) {
+            catalogo += `${i}- ${perfumes[i].nombre}\n`;
+        }
+
+        let seleccion;
+        while (true) {
+            seleccion = parseInt(prompt(catalogo));
+            if (seleccion >= 0 && seleccion < perfumes.length) {
+                break;
+            } else {
+                alert("Opción no válida. Por favor, inténtalo de nuevo.");
+            }
+        }
+
+        while (true) {
+            const confirmacion = prompt(`Has seleccionado: ${perfumes[seleccion].nombre} a $${perfumes[seleccion].precio}\n¿Deseas agregarlo al carrito?\n\n1- Si\n2- No`);
+
+            switch (confirmacion) {
+                case "1":
+                    carrito.push(perfumes[seleccion]);
+                    alert("Producto agregado al carrito.");
+                    break;
+                case "2":
+                    alert("Producto no agregado al carrito.");
+                    break;
+                default:
+                    alert("Opción no válida. Por favor, selecciona 'Si' o 'No'.");
+                    break;
+            } if (confirmacion === "1" || confirmacion === "2") {
+                break;
+            }
+        }
+    } else if (opcion === 2) {
+        let filtro;
+        let resultados;
+
+        while (true) {
+            filtro = prompt("Ingresa el término de búsqueda:");
+            resultados = perfumes.filter(perfume => perfume.nombre.toLowerCase().includes(filtro.toLowerCase()));
+
+            if (resultados.length > 0) {
+                break;
+            } else {
+                alert("No se encontraron resultados para el término de búsqueda. Inténtalo nuevamente.");
+            }
+        }
+
+        let catalogoFiltrado = "Resultados de la Búsqueda:\n\n";
+        for (let i = 0; i < resultados.length; i++) {
+            catalogoFiltrado += `${i}- ${resultados[i].nombre}\n`;
+        }
+
+        let seleccion;
+        while (true) {
+            seleccion = parseInt(prompt(catalogoFiltrado));
+            if (seleccion >= 0 && seleccion < resultados.length) {
+                break;
+            } else {
+                alert("Opción no válida. Por favor, selecciona una opción válida.");
+            }
+        }
+        while (true) {
+            const confirmacion = prompt(`Has seleccionado: ${resultados[seleccion].nombre} a $${resultados[seleccion].precio}\n¿Deseas agregarlo al carrito?\n\n1- Si\n2- No`);
+
+            switch (confirmacion) {
+                case "1":
+                    carrito.push(resultados[seleccion]);
+                    alert("Producto agregado al carrito.");
+                    break;
+                case "2":
+                    alert("Producto no agregado al carrito.");
+                    break;
+                default:
+                    alert("Opción no válida. Por favor, selecciona 'Si' o 'No'.");
+                    break;
+            }
+            if (confirmacion === "1" || confirmacion === "2") {
+                break
+            }
+        }
+
+    } else if (opcion === 3) {
+        if (carrito.length > 0) {
+            let detallesCarrito = "Productos en el carrito:\n";
+            for (const producto of carrito) {
+                detallesCarrito += `${producto.nombre} - $${producto.precio}\n`;
+            }
+            const total = carrito.reduce((acc, el) => acc + el.precio, 0);
+            detallesCarrito += `\nTotal: $${total}`;
+            alert(detallesCarrito);
+        } else {
+            alert("El carrito está vacío.");
+        }
+    } else if (opcion === 4) {
+        if (carrito.length > 0) {
+            const total = carrito.reduce((acc, el) => acc + el.precio, 0);
+            let detallesCarrito = "Productos en el carrito:\n";
+            for (const producto of carrito) {
+                detallesCarrito += `${producto.nombre} - $${producto.precio}\n`;
+            }
+            detallesCarrito += `\nTotal: $${total}`;
+
+            while (true) {
+                const confirmacionFinalizar = prompt(`${detallesCarrito}\n\n¿Deseas finalizar la compra?\n\n1- Si\n2- No`);
+
+                switch (confirmacionFinalizar) {
+                    case "1":
+                        alert("¡Compra finalizada! Gracias por tu compra.");
+                        carrito = [];
+                        break;
+                    case "2":
+                        alert("No has finalizado la compra. Todavía hay productos en tu carrito.");
+                        break;
+                    default:
+                        alert("Opción no válida. Por favor, selecciona 'Si' o 'No'.");
+                        break;
+                }
+
+                if (confirmacionFinalizar === "1" || confirmacionFinalizar === "2") {
+                    break;
+                }
+            }
+        } else {
+            alert("El carrito está vacío. Selecciona un producto");
+        }
+    } else if (opcion === 5) {
+        alert("¡Gracias por visitarnos! ¡Hasta luego!");
+        break;
+    } else {
+        alert("Opción no válida. Por favor, selecciona una opción válida.");
     }
 }
