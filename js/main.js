@@ -140,7 +140,7 @@ function quitarProductoDelCarrito(carrito) {
         for (let i = 0; i < carrito.length; i++) {
             productosParaQuitar += `${i + 1}- ${carrito[i].nombre} - $${carrito[i].precio}\n`;
         }
-        productosParaQuitar += `${carrito.length + 1}- Volver al menú principal`;
+        productosParaQuitar += `${carrito.length + 1}- Volver`;
 
         const productoAQuitar = parseInt(prompt(productosParaQuitar)) - 1;
         if (productoAQuitar >= 0 && productoAQuitar < carrito.length) {
@@ -232,6 +232,10 @@ while (true) {
                 default:
                     alert("Opción no válida. Por favor, selecciona una opción válida.");
                     break;
+            }
+
+            if (confirmacionFinalizar === 1 || confirmacionFinalizar === 2) {
+                break;
             }
         }
 
