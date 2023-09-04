@@ -7,8 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="./style/css/style.css">
-</head>
-<title>L´Homme Parfum</title>
+    <title>L´Homme Parfum</title>
 </head>
 
 <body>
@@ -30,16 +29,17 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Carrito de compra</a>
+                            <a class="nav-link active" href="./pages/carrito.html">Carrito de compra</a>
                         </li>
 
                     </ul>
                     <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                        <button class="btn btn-success" type="submit">Buscar</button>
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"
+                            id="inputBuscar">
+                        <button class="btn btn-success" type="submit" id="btnBuscar">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -52,93 +52,107 @@
         <div class="card" style="width: 18rem;">
             <img src="./img/sauvage.webp" class="card-img-top" alt="Sauvage">
             <div class="card-body">
-                <h5 class="card-title">Dior</h5>
-                <p class="card-text">EDP Sauvage</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title" class="marca">Dior</h5>
+                <p class="card-text" class="nombre">EDP Sauvage</p>
+                <h5 class="precio">$67.000</h5>
+                <a href="#" class="btn btn-primary addCarrito">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem;">
             <img src="./img/boss-bottle.jpg" class="card-img-top" alt="Boss Bottled">
             <div class="card-body">
-                <h5 class="card-title">Boss</h5>
-                <p class="card-text">EDP Boss Bottled</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title" class="marca">Boss</h5>
+                <p class="card-text" class="nombre">EDP Boss Bottled</p>
+                <h5 class="precio">$63.000</h5>
+                <a href="#" class="btn btn-primary addCarrito">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem;">
             <img src="./img/L.12.12-blanc.jpg" class="card-img-top" alt="L.12.12 Blanc">
             <div class="card-body">
-                <h5 class="card-title">Lacoste</h5>
-                <p class="card-text">L.12.12 Blanc</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title" class="marca">Lacoste</h5>
+                <p class="card-text" class="nombre">L.12.12 Blanc</p>
+                <h5 class="precio">$35.435</h5>
+                <a href="#" class="btn btn-primary addCarrito">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem;">
             <img src="./img/gentleman.jpg" class="card-img-top" alt="gentleman">
             <div class="card-body">
-                <h5 class="card-title">Givenchy</h5>
-                <p class="card-text">Gentleman</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title" class="marca">Givenchy</h5>
+                <p class="card-text" class="nombre">Gentleman</p>
+                <h5 class="precio">$66.200</h5>
+                <a href="#" class="btn btn-primary addCarrito">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem;">
             <img src="./img/light-blue.jpg" class="card-img-top" alt=".Light Blue">
             <div class="card-body">
-                <h5 class="card-title">Dolce & Gabbana</h5>
-                <p class="card-text">Light Blue Pour Homme</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title" class="marca">Dolce & Gabbana</h5>
+                <p class="card-text" class="nombre">Light Blue Pour Homme</p>
+                <h5 class="precio">$60.750</h5>
+                <a href="#" class="btn btn-primary addCarrito">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem;">
             <img src="./img/L´homme.jpg" class="card-img-top" alt="L´Homme">
             <div class="card-body">
-                <h5 class="card-title">Yves Saint Laurent</h5>
-                <p class="card-text">L´Homme</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title" class="marca">Yves Saint Laurent</h5>
+                <p class="card-text" class="nombre">L´Homme</p>
+                <h5 class="precio">$54.915</h5>
+                <a href="#" class="btn btn-primary addCarrito">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem;">
             <img src="./img/polo-blue.webp" class="card-img-top" alt="Polo Blue">
             <div class="card-body">
-                <h5 class="card-title">Ralph Lauren</h5>
-                <p class="card-text">Polo Blue</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title" class="marca">Ralph Lauren</h5>
+                <p class="card-text" class="nombre">Polo Blue</p>
+                <h5 class="precio">$54.315</h5>
+                <a href="#" class="btn btn-primary addCarrito">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem;">
             <img src="./img/L´eau-D´issey.webp" class="card-img-top" alt="L´eau-D´issey">
             <div class="card-body">
-                <h5 class="card-title">Issey Miyake</h5>
-                <p class="card-text">L´eau D´Issey Pour Homme</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title" class="marca">Issey Miyake</h5>
+                <p class="card-text" class="nombre">L´eau D´Issey Pour Homme</p>
+                <h5 class="precio">$58.850</h5>
+                <a href="#" class="btn btn-primary addCarrito">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem;">
             <img src="./img/one-million.webp" class="card-img-top" alt="One Million">
             <div class="card-body">
-                <h5 class="card-title">Paco Rabbane</h5>
-                <p class="card-text">One Million</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title" class="marca">Paco Rabbane</h5>
+                <p class="card-text" class="nombre">One Million</p>
+                <h5 class="precio">$52.550</h5>
+                <a href="#" class="btn btn-primary addCarrito">Agregar al carrito</a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem;">
             <img src="./img/phantom.jpg" class="card-img-top" alt="Phantom">
             <div class="card-body">
-                <h5 class="card-title">Paco Rabbane</h5>
-                <p class="card-text">Phantom</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
+                <h5 class="card-title" class="marca">Paco Rabbane</h5>
+                <p class="card-text" class="nombre">Phantom</p>
+                <h5 class="precio">$54.650</h5>
+                <a href="#" class="btn btn-primary addCarrito">Agregar al carrito</a>
             </div>
         </div>
     </div>
+
+    
+
+    <footer></footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
