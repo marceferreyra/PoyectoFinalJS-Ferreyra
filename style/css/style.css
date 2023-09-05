@@ -49,4 +49,18 @@ h1 {
   color: black;
 }
 
+.producto {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+.producto img {
+  height: 50px;
+  width: 50px;
+}
+.producto p {
+  width: 300px;
+}
+
 /*# sourceMappingURL=style.css.map */

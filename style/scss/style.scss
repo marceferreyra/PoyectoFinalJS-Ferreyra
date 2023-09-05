@@ -50,3 +50,20 @@ h1 {
     background-color: whitesmoke;
     color: black;
 }
+
+.producto {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+    img {
+        height: 50px;
+        width: 50px;
+    }
+
+    p{
+        width: 300px;
+    }
+
+}
