@@ -98,7 +98,55 @@ function quitarDelCarrito(index) {
     mostrarCarrito(); 
 }
 
+/*buqueda*/
 
+const inputBuscar = document.getElementById("inputBuscar");
+const formularioBuscar = document.getElementById("btnBuscar");
+
+formularioBuscar.addEventListener("click", function (event) {
+    event.preventDefault(); 
+    const valorBusqueda = inputBuscar.value.toLowerCase(); 
+    const productosFiltrados = perfumes.filter((producto) => {
+        const nombreProducto = producto.nombre.toLowerCase();
+        const marcaProducto = producto.marca.toLowerCase();
+        return nombreProducto.includes(valorBusqueda) || marcaProducto.includes(valorBusqueda);
+    });
+
+    mostrarResultadosFiltrados(productosFiltrados);
+});
+
+
+function mostrarResultadosFiltrados(resultados) {
+    const fraganciasHombre = document.getElementById("fraganciasHombre");
+    fraganciasHombre.innerHTML = "";
+
+    resultados.forEach((producto, index) => {
+        const cardHTML = `
+        <div class="card" style="width: 18rem;">
+            <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+            <div class="card-body">
+                <h5 class="card-title marca">${producto.marca}</h5>
+                <p class="card-text nombre">${producto.nombre}</p>
+                <h5 class="precio">$${producto.precio.toFixed(3)}</h5>
+                <a href="#" class="btn btn-primary addCarrito" data-producto-index="${index}">Agregar al carrito</a>
+            </div>
+        </div>
+        `;
+
+        const cardPerfume = document.createElement("div");
+        cardPerfume.innerHTML = cardHTML;
+        fraganciasHombre.appendChild(cardPerfume);
+
+        const botonAgregar = cardPerfume.querySelector(".addCarrito");
+        botonAgregar.addEventListener("click", () => {
+            event.preventDefault()
+            const productoIndex = parseInt(botonAgregar.getAttribute("data-producto-index"));
+            const producto = resultados[productoIndex];
+            agregarAlCarrito(producto);
+            mostrarCarrito();
+        });
+    });
+}
 
 
 

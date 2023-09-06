@@ -53,6 +53,7 @@ h1 {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 80%;
 }
 .producto img {
@@ -60,7 +61,7 @@ h1 {
   width: 50px;
 }
 .producto p {
-  width: 300px;
+  width: 400px;
 }
 
 /*# sourceMappingURL=style.css.map */
