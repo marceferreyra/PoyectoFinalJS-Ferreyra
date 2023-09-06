@@ -56,15 +56,37 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+
 
     img {
         height: 50px;
         width: 50px;
     }
 
-    p{
-        width: 400px;
+    #pNombre {
+        width: 250px;
     }
 
+    #pPrecio {
+        width: 100px;
+    }
+
+}
+
+.offcanvas.offcanvas-end.text-bg-dark {
+    width: 600px;
+}
+
+#carrito-container {
+    
+    h2 {
+        padding: 20px;
+        padding-left: 0px;
+    }
+}
+
+#carrito {
+    p {
+        padding-left: 0px;
+    }
 }

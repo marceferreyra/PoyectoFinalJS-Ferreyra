@@ -36,6 +36,8 @@ function agregarAlCarrito(producto) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     carrito.push(producto);
     localStorage.setItem("carrito", JSON.stringify(carrito));
+    Swal.fire ('Producto agregado al carrito')
+    
 }
 
 function calcularTotalCarrito() {
@@ -60,9 +62,9 @@ function mostrarCarrito() {
         itemCarrito.innerHTML = `
             <div class="producto">
                 <img src="${producto.imagen}" alt="${producto.nombre}">
-                <p>${producto.marca} - ${producto.nombre}</p>
-                <p>Precio: $${producto.precio.toFixed(3)}</p>
-                <button class="btn btn-primary quitarProducto" data-index="${index}">Quitar producto</button>
+                <p id="pNombre">${producto.marca} - ${producto.nombre}</p>
+                <p id="pPrecio">Precio: $${producto.precio.toFixed(3)}</p>
+                <button class="btn btn-primary quitarProducto" data-index="${index}">Quitar</button>
             </div>        
         `;
         carritoContainer.appendChild(itemCarrito);
@@ -97,6 +99,21 @@ function quitarDelCarrito(index) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito(); 
 }
+
+const botonFinalizarCompraContainer = document.getElementById("botonFinalizarCompra");
+
+const botonFinalizarCompra = document.createElement("button");
+botonFinalizarCompra.id = "finalizarCompra";
+botonFinalizarCompra.classList.add("btn", "btn-primary");
+botonFinalizarCompra.textContent = "Finalizar Compra";
+
+botonFinalizarCompra.addEventListener("click", () => {
+       localStorage.removeItem("carrito");
+       Swal.fire (`Su compra fue realizada con éxito`)   
+    mostrarCarrito();
+  });
+
+botonFinalizarCompraContainer.appendChild(botonFinalizarCompra);
 
 /*buqueda*/
 
