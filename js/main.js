@@ -36,7 +36,13 @@ function agregarAlCarrito(producto) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     carrito.push(producto);
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    Swal.fire ('Producto agregado al carrito')
+    Swal.fire({
+        title: "Producto agregado al carrito",
+        confirmButtonText: "Aceptar", 
+        customClass: {
+          confirmButton: "my-confirm-button", 
+        },
+      });
     
 }
 
@@ -80,7 +86,6 @@ function mostrarCarrito() {
     carritoContainer.appendChild(totalCarrito);
 }
 
-mostrarCarrito();
 
 const botonesAgregar = document.querySelectorAll(".addCarrito");
 botonesAgregar.forEach((boton) => {
@@ -108,14 +113,33 @@ botonFinalizarCompra.classList.add("btn", "btn-primary");
 botonFinalizarCompra.textContent = "Finalizar Compra";
 
 botonFinalizarCompra.addEventListener("click", () => {
-       localStorage.removeItem("carrito");
-       Swal.fire (`Su compra fue realizada con éxito`)   
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    if (carrito.length === 0) {
+        Swal.fire({
+            title: "El carrito esta vacío. Agregue productos.",
+            confirmButtonText: "Aceptar", 
+            customClass: {
+              confirmButton: "my-confirm-button", 
+            },
+          });
+    } else {        
+        localStorage.removeItem("carrito");
+        Swal.fire({
+            title: 'Su compra fue realizada con éxito',
+            icon: 'success',
+            confirmButtonText: "Aceptar", 
+            customClass: {
+              confirmButton: 'my-confirm-button',
+            }
+          });
     mostrarCarrito();
-  });
+    }
+});
 
 botonFinalizarCompraContainer.appendChild(botonFinalizarCompra);
 
-/*buqueda*/
+//buqueda
 
 const inputBuscar = document.getElementById("inputBuscar");
 const formularioBuscar = document.getElementById("btnBuscar");
