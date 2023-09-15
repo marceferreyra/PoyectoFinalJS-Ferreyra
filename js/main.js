@@ -1,17 +1,12 @@
 const perfumes = [
-    { marca: "Dior", nombre: "EDP Sauvage", precio: 67.000, imagen: "./img/sauvage.webp" },
-    { marca: "Boss", nombre: "EDP Boss Bottled", precio: 63.000, imagen: "./img/boss-bottle.jpg" },
-    { marca: "Lacoste", nombre: "L.12.12 Blanc", precio: 35.435, imagen: "./img/L.12.12-blanc.jpg" },
-    { marca: "Givenchy", nombre: "Gentleman", precio: 66.200, imagen: "./img/gentleman.jpg" },
-    { marca: "Dolce & Gabbana", nombre: "Light Blue Pour Homme", precio: 60.750, imagen: "./img/light-blue.jpg" },
-    { marca: "Yves Saint Laurent", nombre: "L´Homme", precio: 54.915, imagen: "./img/L´homme.jpg" },
-    { marca: "Ralph Lauren", nombre: "Polo Blue", precio: 54.315, imagen: "./img/polo-blue.webp" },
-    { marca: "Issey Miyake", nombre: "L´eau D´issey Pour Homme", precio: 58.850, imagen: "./img/L´eau-D´issey.webp" },
-    { marca: "Paco Rabbane", nombre: "One Million", precio: 52.550, imagen: "./img/one-million.webp" },
-    { marca: "Paco Rabbane", nombre: "Phantom", precio: 54.650, imagen: "./img/phantom.jpg" },
+    { marca: "Armani", nombre: "Armani Code EDT", precio: 75000 , imagen: "./img/armaniCodeEDT.jpg" , presentacion: "75ml" },
+    { marca: "Armani", nombre: "Armani Code Parfum", precio: 88900 , imagen: "./img/armaniCodeParfum.jpg" , presentacion: "75ml" },
+    { marca: "Armani", nombre: "Acqua di Gio Homme Parfum", precio: 86900 , imagen: "./img/armaniAcqua.webp" , presentacion: "75ml" },
 ];
 
 const fraganciasHombre = document.getElementById("fraganciasHombre");
+
+mostrarCarrito()
 
 perfumes.forEach((producto, index) => {
     const cardHTML = `
@@ -19,8 +14,8 @@ perfumes.forEach((producto, index) => {
         <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
         <div class="card-body">
             <h5 class="card-title marca">${producto.marca}</h5>
-            <p class="card-text nombre">${producto.nombre}</p>
-            <h5 class="precio">$${producto.precio.toFixed(3)}</h5>
+            <p class="card-text nombre">${producto.nombre} - ${producto.presentacion}ml</p>
+            <h5 class="precio">$${producto.precio}</h5>
             <a href="#" class="btn btn-primary addCarrito" data-producto-index="${index}">Agregar al carrito</a>
         </div>
     </div>
