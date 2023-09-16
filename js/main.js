@@ -20,7 +20,7 @@ const perfumes = [
     { marca: "Issey Miyake", nombre: "L´Eau D´Issey EDT", precio: 82400, imagen: "img/miyakeLeauDissey.webp", presentacion: "75ml" },
     { marca: "Issey Miyake", nombre: "L´Eau D´Issey Eau & Cedre EDT", precio: 106600, imagen: "img/miyakeLeauDisseyEau&Cedre.jpg", presentacion: "100ml" },
     { marca: "Issey Miyake", nombre: "Fusion D´Issey EDT", precio: 73690, imagen: "img/miyakeFusion.jpg", presentacion: "50ml" },
-    { marca: "Lacoste", nombre: "L.12.12 Blan EDP", precio: 42525, imagen: "img/lacosteL1212.jpg", presentacion: "100ml" },
+    { marca: "Lacoste", nombre: "L.12.12 Blanc EDP", precio: 42525, imagen: "img/lacosteL1212.jpg", presentacion: "100ml" },
     { marca: "Lacoste", nombre: "L´Homme EDT", precio: 37530, imagen: "img/lacosteLhomme.jpg", presentacion: "100ml" },
     { marca: "Lacoste", nombre: "Matchpoint EDT", precio: 38740, imagen: "img/lacosteMatchPoint.webp", presentacion: "100ml" },
     { marca: "Paco Rabanne", nombre: "One MIllion EDT", precio: 70950, imagen: "img/PacoOneMillion.webp", presentacion: "100ml" },

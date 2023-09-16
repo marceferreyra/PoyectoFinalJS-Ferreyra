@@ -84,4 +84,9 @@ h1 {
   border: 1px solid black !important;
 }
 
+.navPersonalizada img {
+  height: 40px;
+  background-color: black;
+}
+
 /*# sourceMappingURL=style.css.map */
