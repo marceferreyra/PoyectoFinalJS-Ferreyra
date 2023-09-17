@@ -1,0 +1,266 @@
+[
+   {
+      "id": 1,
+      "marca": "Armani",
+      "nombre": "Armani Code EDT",
+      "precio": 74900,
+      "imagen": "./img/armaniCodeEDT.jpg",
+      "presentacion": "75ml"
+   },
+   {
+      "id": 2,
+      "marca": "Armani",
+      "nombre": "Armani Code Parfum",
+      "precio": 88900,
+      "imagen": "./img/armaniCodeParfum.jpg",
+      "presentacion": "75ml"
+   },
+   {
+      "id": 3,
+      "marca": "Armani",
+      "nombre": "Acqua di Gio Homme Parfum",
+      "precio": 86900,
+      "imagen": "./img/armaniAcqua.webp",
+      "presentacion": "75ml"
+   },
+   {
+      "id": 4,
+      "marca": "Carolina Herrera",
+      "nombre": "212 VIP Black LOVE NY EDP",
+      "precio": 61500,
+      "imagen": "img/CH212VipNY.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 5,
+      "marca": "Carolina Herrera",
+      "nombre": "212 VIP black EDP",
+      "precio": 68350,
+      "imagen": "./img/CH212VipEDP.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 6,
+      "marca": "Carolina Herrera",
+      "nombre": "Bad Boy Le Parfum",
+      "precio": 79800,
+      "imagen": "./img/CHBadBoy.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 7,
+      "marca": "Dior",
+      "nombre": "Sauvage",
+      "precio": 79100,
+      "imagen": "img/diorSauvage.webp",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 8,
+      "marca": "Dior",
+      "nombre": "Fahrenheit EDT",
+      "precio": 79000,
+      "imagen": "img/diorFahrenheit.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id":9,
+      "marca": "Dior",
+      "nombre": "Dior Homme Intense EDP",
+      "precio": 92900,
+      "imagen": "img/diorHommeIntense.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 10,
+      "marca": "Dolce & Gabbana",
+      "nombre": "Light Blue EDT",
+      "precio": 85060,
+      "imagen": "img/D&GLightBlue.webp",
+      "presentacion": "125ml"
+   },
+   {
+      "id": 11,
+      "marca": "Dolce & Gabbana",
+      "nombre": "K by D&G EDP",
+      "precio": 107150,
+      "imagen": "img/D&GKing.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id":12,
+      "marca": "Dolce & Gabbana",
+      "nombre": "Dolce Pour Homme EDT",
+      "precio": 85060,
+      "imagen": "img/D&GDolce.jpg",
+      "presentacion": "125ml"
+   },
+   {
+      "id": 13,
+      "marca": "Givenchy",
+      "nombre": "Gentleman Society",
+      "precio": 91400,
+      "imagen": "img/givenchyGentlemanSociety.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id":14,
+      "marca": "Givenchy",
+      "nombre": "Gentleman EDP",
+      "precio": 87000,
+      "imagen": "img/givenchyGentleman.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 15,
+      "marca": "Givenchy",
+      "nombre": "Blue Label EDT",
+      "precio": 75600,
+      "imagen": "img/givenchyBlueLabel.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 16,
+      "marca": "Hugo Boss",
+      "nombre": "BOSS Bottled EDT",
+      "precio": 72400,
+      "imagen": "img/bossBottledEDT.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 17,
+      "marca": "Hugo Boss",
+      "nombre": "BOSS Bottled Parfum",
+      "precio": 87000,
+      "imagen": "img/bossBottledParfum.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 18,
+      "marca": "Hugo Boss",
+      "nombre": "BOSS The Scent EDT",
+      "precio": 83400,
+      "imagen": "img/bossScent.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 19,
+      "marca": "Issey Miyake",
+      "nombre": "L´Eau D´Issey EDT",
+      "precio": 82400,
+      "imagen": "img/miyakeLeauDissey.webp",
+      "presentacion": "75ml"
+   },
+   {
+      "id": 20,
+      "marca": "Issey Miyake",
+      "nombre": "L´Eau D´Issey Eau & Cedre EDT",
+      "precio": 106600,
+      "imagen": "img/miyakeLeauDisseyEau&Cedre.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 21,
+      "marca": "Issey Miyake",
+      "nombre": "Fusion D´Issey EDT",
+      "precio": 73690,
+      "imagen": "img/miyakeFusion.jpg",
+      "presentacion": "50ml"
+   },
+   {
+      "id": 22,
+      "marca": "Lacoste",
+      "nombre": "L.12.12 Blanc EDP",
+      "precio": 42525,
+      "imagen": "img/lacosteL1212.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 23,
+      "marca": "Lacoste",
+      "nombre": "L´Homme EDT",
+      "precio": 37530,
+      "imagen": "img/lacosteLhomme.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 24,
+      "marca": "Lacoste",
+      "nombre": "Matchpoint EDT",
+      "precio": 38740,
+      "imagen": "img/lacosteMatchPoint.webp",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 25,
+      "marca": "Paco Rabanne",
+      "nombre": "One MIllion EDT",
+      "precio": 70950,
+      "imagen": "img/PacoOneMillion.webp",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 26,
+      "marca": "Paco Rabanne",
+      "nombre": "Phantom EDT",
+      "precio": 73800,
+      "imagen": "img/PacoPhantom.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 27,
+      "marca": "Paco Rabanne",
+      "nombre": "Invictus EDT",
+      "precio": 70950,
+      "imagen": "img/pacoInvictus.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 28,
+      "marca": "Ralph Lauren",
+      "nombre": "Polo Blue EDT",
+      "precio": 79900,
+      "imagen": "img/ralphLaurenBlue.webp",
+      "presentacion": "125ml"
+   },
+   {
+      "id": 29,
+      "marca": "Ralph Lauren",
+      "nombre": "Polo Red EDT",
+      "precio": 79900,
+      "imagen": "img/ralphLaurenRed.jpeg",
+      "presentacion": "125ml"
+   },
+   {
+      "id":30,
+      "marca": "Ralph Lauren",
+      "nombre": "Polo EDT",
+      "precio": 79900,
+      "imagen": "img/ralphLaurenEDT.jpg",
+      "presentacion": "118ml"
+   },
+   {
+      "id": 31,
+      "marca": "Yves Saint Laurent",
+      "nombre": "Opium EDT",
+      "precio": 92900,
+      "imagen": "img/YSLOpium.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 32,
+      "marca": "Yves Saint Laurent",
+      "nombre": "Y Men Intense EDP",
+      "precio": 99900,
+      "imagen": "img/YSLYIntense.jpg",
+      "presentacion": "100ml"
+   },
+   {
+      "id": 33,
+      "marca": "Yves Saint Laurent",
+      "nombre": "L´Homme",
+      "precio": 80900,
+      "imagen": "img/YSLLhomme.jpg",
+      "presentacion": "100ml"
+   }
+]

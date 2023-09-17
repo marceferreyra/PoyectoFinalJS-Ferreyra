@@ -89,4 +89,18 @@ h1 {
   background-color: black;
 }
 
+.btn-buscar {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+.btn-buscar img {
+  height: 20px;
+}
+.btn-buscar input {
+  border-radius: 6%;
+  border: 1px solid;
+  width: 350px;
+}
+
 /*# sourceMappingURL=style.css.map */
