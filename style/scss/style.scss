@@ -51,15 +51,26 @@ h1 {
 }
 
 .producto {
-    padding: 10px;
+    #pPrecio {
+        margin-bottom: 0px;
+    }
+
+    #pNombre {
+        padding-left: 15px;
+        margin-bottom: 0px;
+        padding-right: 15px;
+    }
+
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
 
     img {
-        height: 50px;
-        width: 50px;
+        margin: 0px;
+        height: 50px !important;
+        width: 50px !important;
     }
 
     #pNombre {
@@ -144,11 +155,11 @@ a {
 }
 
 .marca-dropdown .dropdown-menu {
-    width: 220px; 
+    width: 220px;
 }
 
 .marca-dropdown .dropdown-menu .marca-item {
-    padding-left: 15px;      
+    padding-left: 15px;
 }
 
 .presentacion-dropdown .dropdown-menu {
@@ -156,5 +167,24 @@ a {
 }
 
 .presentacion-dropdown .dropdown-menu .presentacion-item {
-    padding-left: 15px;     
-   }
+    padding-left: 15px;
+}
+
+.cantidad-container {
+    display: flex;
+    width: 150px;
+
+    input {
+        width: 40px;
+        border-radius: 1%;
+        margin: 0px;
+    }
+}
+
+.mascantidad {
+    width: 35px;
+}
+
+.menosCantidad {
+    width: 35px;
+}

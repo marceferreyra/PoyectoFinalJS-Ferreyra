@@ -51,7 +51,15 @@ function agregarAlCarrito(e, productos) {
             carrito = [];
         }
 
-        carrito.push(productoElegido);
+        const productoExistente = carrito.find(p => p.id === productoElegido.id);
+
+        if (productoExistente) {
+            productoExistente.cantidad += 1;
+        } else {
+            productoElegido.cantidad = 1;
+            carrito.push(productoElegido);
+        }
+
         localStorage.setItem('carrito', JSON.stringify(carrito));
         Toastify({
             text: "Item agregado al carrito",
@@ -65,7 +73,8 @@ function agregarAlCarrito(e, productos) {
             duration: 1500
         }).showToast();
     }
-    mostrarCarrito()
+    mostrarCarrito();
+    return;
 }
 
 
@@ -82,19 +91,44 @@ function mostrarCarrito() {
         return;
     }
 
-    carrito.forEach((producto) => {
+    const carritoFiltrado = carrito.filter((producto) => producto.cantidad > 0); 
+
+    carritoFiltrado.forEach((producto) => {
         const productoDiv = document.createElement('div');
         productoDiv.classList.add('producto');
         productoDiv.innerHTML = `
-                    <img src="${producto.imagen}" alt="${producto.nombre}">
-                    <p id="pNombre">${producto.marca} - ${producto.nombre}</p>
-                    <p id="pPrecio">Precio: $${producto.precio}</p>
-                    <button class="btn btn-primary quitarProducto" id="${producto.id}">Quitar</button>
-                `;
+        <img src="${producto.imagen}" alt="${producto.nombre}">
+        <p id="pNombre">${producto.marca} - ${producto.nombre}</p>
+        <p id="pPrecio">Precio: $${producto.precio * producto.cantidad}</p>
+        <div class="cantidad-container">
+            <button class="btn btn-primary menosCantidad" data-id="${producto.id}">-</button>
+                        <input type="number" class="cantidad" value="${producto.cantidad}" min="1">
+            <button class="btn btn-primary masCantidad" data-id="${producto.id}">+</button>
+        </div>
+        <button class="btn btn-primary quitarProducto" id="${producto.id}">Quitar</button>
+    `;
+
+    const menosCantidadButton = productoDiv.querySelector('.menosCantidad');
+    menosCantidadButton.addEventListener('click', (e) => {
+        modificarCantidad(e, carrito, -1);
+        mostrarCarrito(); 
+    });
+
+    const masCantidadButton = productoDiv.querySelector('.masCantidad');
+    masCantidadButton.addEventListener('click', (e) => {
+        modificarCantidad(e, carrito, 1);
+        mostrarCarrito(); 
+    });
+
+        const cantidadInput = productoDiv.querySelector('.cantidad');
+        cantidadInput.addEventListener('change', (e) => {
+            modificarCantidadDesdeInput(e, carrito);
+        });
 
         const quitarButton = productoDiv.querySelector('.quitarProducto');
         quitarButton.addEventListener('click', (e) => {
             quitarProducto(e, carrito);
+            mostrarCarrito();
         });
 
         carritoContainer.appendChild(productoDiv);
@@ -105,11 +139,43 @@ function mostrarCarrito() {
     carritoContainer.appendChild(totalCarrito);
 }
 
+
+function modificarCantidad(e, carrito, cambio) {
+    const productoId = e.target.getAttribute('data-id');
+    const producto = carrito.find((p) => p.id === parseInt(productoId));
+
+    if (producto) {
+        const nuevaCantidad = producto.cantidad + cambio;
+
+        if (nuevaCantidad >= 1) {
+            producto.cantidad = nuevaCantidad;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito();
+        }
+    }
+}
+
+function modificarCantidadDesdeInput(e, carrito) {
+    const productoId = e.target.parentElement.querySelector('.menosCantidad').getAttribute('data-id');
+    const nuevaCantidad = parseInt(e.target.value);
+
+    const producto = carrito.find((p) => p.id === parseInt(productoId));
+
+    if (producto) {
+        if (nuevaCantidad < 0) {
+            e.target.value = 0; 
+        } else {
+            producto.cantidad = nuevaCantidad;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito();
+        }
+    }
+}
+
 function quitarProducto(e, carrito) {
     const productoId = parseInt(e.target.id);
     const nuevoCarrito = carrito.filter((producto) => producto.id !== productoId);
     localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
-    e.target.parentElement.remove();
     mostrarCarrito();
     Toastify({
         text: "Item removido del carrito",
@@ -131,7 +197,8 @@ function calcularTotalCarrito() {
     let total = 0;
 
     carrito.forEach((producto) => {
-        total += producto.precio;
+        const subtotal = producto.precio * producto.cantidad;
+        total += subtotal;
     });
 
     return total;

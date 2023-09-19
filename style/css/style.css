@@ -48,14 +48,23 @@ h1 {
 }
 
 .producto {
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+.producto #pPrecio {
+  margin-bottom: 0px;
+}
+.producto #pNombre {
+  padding-left: 15px;
+  margin-bottom: 0px;
+  padding-right: 15px;
+}
 .producto img {
-  height: 50px;
-  width: 50px;
+  margin: 0px;
+  height: 50px !important;
+  width: 50px !important;
 }
 .producto #pNombre {
   width: 250px;
@@ -138,6 +147,24 @@ a {
 
 .presentacion-dropdown .dropdown-menu .presentacion-item {
   padding-left: 15px;
+}
+
+.cantidad-container {
+  display: flex;
+  width: 150px;
+}
+.cantidad-container input {
+  width: 40px;
+  border-radius: 1%;
+  margin: 0px;
+}
+
+.mascantidad {
+  width: 35px;
+}
+
+.menosCantidad {
+  width: 35px;
 }
 
 /*# sourceMappingURL=style.css.map */
