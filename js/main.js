@@ -6,13 +6,12 @@ fetch(url)
     .then(data => {
         productos = data;
         mostrarProductos(productos);
-        mostrarCarrito();
         initBusqueda();
+        calcularTotalCarrito();
+        mostrarCarrito();
     });
 
 const fraganciasHombre = document.querySelector(`#fraganciasHombre`);
-
-mostrarCarrito()
 
 function mostrarProductos(productos) {
     productos.forEach((producto) => {
@@ -46,11 +45,23 @@ function mostrarProductos(productos) {
 function agregarAlCarrito(e, productos) {
     const productoElegido = productos.find(el => el.id === parseInt(e.target.id));
     if (productoElegido) {
-        const carrito = JSON.parse(localStorage.getItem('carrito'));
+        let carrito = JSON.parse(localStorage.getItem('carrito'));
+
+        if (!carrito) {
+            carrito = [];
+        }
+
         carrito.push(productoElegido);
         localStorage.setItem('carrito', JSON.stringify(carrito));
         Toastify({
             text: "Item agregado al carrito",
+            style: {
+                background: "linear-gradient(to right, #2e2e2e, #151515)",
+            },
+            offset: {
+                x: 0,
+                y: 60,
+            },
             duration: 1500
         }).showToast();
     }
@@ -60,8 +71,16 @@ function agregarAlCarrito(e, productos) {
 
 function mostrarCarrito() {
     const carritoContainer = document.getElementById('carrito');
+    if (!carritoContainer) {
+        return;
+    }
+
     carritoContainer.innerHTML = '';
     const carrito = JSON.parse(localStorage.getItem('carrito'));
+
+    if (!carrito) {
+        return;
+    }
 
     carrito.forEach((producto) => {
         const productoDiv = document.createElement('div');
@@ -94,6 +113,13 @@ function quitarProducto(e, carrito) {
     mostrarCarrito();
     Toastify({
         text: "Item removido del carrito",
+        style: {
+            background: "linear-gradient(to right, #2e2e2e, #151515)",
+        },
+        offset: {
+            x: 0,
+            y: 20,
+        },
         duration: 1500
     }).showToast();
 }
@@ -118,6 +144,7 @@ botonFinalizarCompra.id = "finalizarCompra";
 botonFinalizarCompra.classList.add("btn", "btn-primary");
 botonFinalizarCompra.textContent = "Finalizar Compra";
 botonFinalizarCompraContainer.appendChild(botonFinalizarCompra);
+
 botonFinalizarCompra.addEventListener("click", () => {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -131,6 +158,7 @@ botonFinalizarCompra.addEventListener("click", () => {
         });
     } else {
         localStorage.removeItem("carrito");
+        productos = [...productos];
         Swal.fire({
             title: 'Su compra fue realizada con éxito',
             icon: 'success',
@@ -218,46 +246,11 @@ marcaItems.forEach((marcaItem) => {
 const presentacionItems = document.querySelectorAll(".presentacion-item");
 presentacionItems.forEach((presentacionItem) => {
     presentacionItem.addEventListener("click", (e) => {
-        e.preventDefault();       
-        const presentacionSeleccionada = e.target.innerText;      
+        e.preventDefault();
+        const presentacionSeleccionada = e.target.innerText;
         const productosFiltrados = productos.filter((producto) =>
             producto.presentacion.toLowerCase() === presentacionSeleccionada.toLowerCase()
-        );        
+        );
         mostrarResultadosFiltrados(productosFiltrados);
     });
 });
-
-
-
-
-
-
-
-/*function mostrarResultadosFiltrados(resultados) {
-    const fraganciasHombre = document.getElementById("fraganciasHombre");
-    fraganciasHombre.innerHTML = "";
-
-    resultados.forEach((producto) => {
-        const cardPerfume = document.createElement("div");
-        cardPerfume.innerHTML = `<div class="card" style="width: 18rem;">
-        <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-        <div class="card-body">
-            <h5 class="card-title marca">${producto.marca}</h5>
-            <p class="card-text nombre">${producto.nombre}</p>
-            <h5 class="precio">$${producto.precio} - ${producto.presentacion}</h5>
-            <a href="#" class="btn btn-primary addCarrito" id="${producto.id}">Agregar al carrito</a>
-        </div>
-    </div>`;
-        fraganciasHombre.appendChild(cardPerfume);
-
-
-        const botonAgregar = cardPerfume.querySelector(".addCarrito");
-        botonAgregar.addEventListener("click", () => {
-            event.preventDefault()
-            const productoIndex = parseInt(botonAgregar.getAttribute("data-producto-index"));
-            const producto = resultados[productoIndex];
-            agregarAlCarrito(producto);
-            mostrarCarrito();
-        });
-    });
-}*/
