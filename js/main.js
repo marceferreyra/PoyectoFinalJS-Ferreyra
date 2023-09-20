@@ -40,7 +40,7 @@ function mostrarProductos(productos) {
     if (!localStorage.getItem('carrito')) {
         localStorage.setItem('carrito', JSON.stringify([]));
     }
-    
+
     function productoEnCarrito(id) {
         const carrito = JSON.parse(localStorage.getItem('carrito'));
         return carrito && carrito.some((producto) => producto.id === id);
@@ -98,7 +98,7 @@ function mostrarCarrito() {
         return;
     }
 
-    const carritoFiltrado = carrito.filter((producto) => producto.cantidad > 0); 
+    const carritoFiltrado = carrito.filter((producto) => producto.cantidad > 0);
 
     carritoFiltrado.forEach((producto) => {
         const productoDiv = document.createElement('div');
@@ -115,17 +115,17 @@ function mostrarCarrito() {
         <button class="btn btn-primary quitarProducto" id="${producto.id}">Quitar</button>
     `;
 
-    const menosCantidadButton = productoDiv.querySelector('.menosCantidad');
-    menosCantidadButton.addEventListener('click', (e) => {
-        modificarCantidad(e, carrito, -1);
-        mostrarCarrito(); 
-    });
+        const menosCantidadButton = productoDiv.querySelector('.menosCantidad');
+        menosCantidadButton.addEventListener('click', (e) => {
+            modificarCantidad(e, carrito, -1);
+            mostrarCarrito();
+        });
 
-    const masCantidadButton = productoDiv.querySelector('.masCantidad');
-    masCantidadButton.addEventListener('click', (e) => {
-        modificarCantidad(e, carrito, 1);
-        mostrarCarrito(); 
-    });
+        const masCantidadButton = productoDiv.querySelector('.masCantidad');
+        masCantidadButton.addEventListener('click', (e) => {
+            modificarCantidad(e, carrito, 1);
+            mostrarCarrito();
+        });
 
         const cantidadInput = productoDiv.querySelector('.cantidad');
         cantidadInput.addEventListener('change', (e) => {
@@ -170,7 +170,7 @@ function modificarCantidadDesdeInput(e, carrito) {
 
     if (producto) {
         if (nuevaCantidad < 0) {
-            e.target.value = 0; 
+            e.target.value = 0;
         } else {
             producto.cantidad = nuevaCantidad;
             localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -184,7 +184,7 @@ function quitarProducto(e, carrito) {
     const nuevoCarrito = carrito.filter((producto) => producto.id !== productoId);
     localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
     mostrarCarrito();
-    
+
     const boton = document.getElementById(productoId);
     const originalText = boton.getAttribute('data-original-text');
     boton.textContent = originalText;
@@ -333,3 +333,37 @@ presentacionItems.forEach((presentacionItem) => {
         mostrarResultadosFiltrados(productosFiltrados);
     });
 });
+
+//login
+
+const btnLogin = document.getElementById('btnLogin');
+btnLogin.addEventListener('click', iniciarSesion);
+
+function iniciarSesion() {
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+
+    if (username === 'Marce' && password === '123456') {
+            Swal.fire({
+            icon: 'success',
+            title: 'Inicio de sesión exitoso',
+            text: '¡Bienvenido, Marce!',
+            confirmButtonText: 'Aceptar',
+            customClass: {
+                confirmButton: 'my-confirm-button',
+            }
+        });
+        const offcanvasTop = new bootstrap.Offcanvas(document.getElementById('offcanvasTop'));
+        offcanvasTop.hide();
+    } else {
+            Swal.fire({
+            icon: 'error',
+            title: 'Ups!',
+            text: 'Usuario o contraseña incorrectas.',
+            confirmButtonText: 'Aceptar',
+            customClass: {
+                confirmButton: 'my-confirm-button',
+            }
+        });
+    }
+}

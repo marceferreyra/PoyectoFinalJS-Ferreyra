@@ -62,9 +62,10 @@ h1 {
   padding-right: 15px;
 }
 .producto img {
+  padding-left: 10px;
   margin: 0px;
-  height: 50px !important;
-  width: 50px !important;
+  height: 50px;
+  width: 50px;
 }
 .producto #pNombre {
   width: 250px;
@@ -78,12 +79,14 @@ h1 {
 }
 
 #carrito-container h2 {
-  padding: 20px;
-  padding-left: 0px;
+  padding: 10px;
+}
+#carrito-container button {
+  margin-left: 5px;
 }
 
 #carrito p {
-  padding-left: 0px;
+  padding-left: 10px;
 }
 
 .my-confirm-button {
@@ -220,22 +223,44 @@ a {
   border: none;
 }
 
-.user-input .btn-primary {
-  height: 56px;
-  width: 120px;
+.offcanvas-header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
-.user-input input {
+
+#loginForm {
+  display: flex;
+  justify-content: center;
+}
+#loginForm input {
+  margin-left: 15px;
   width: 250px;
 }
-
-#offcanvasTop .header-user {
+#loginForm label {
+  margin-left: 15px;
+}
+#loginForm button {
+  font-weight: 500;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+  margin-top: 1px;
+  width: 112px;
+  height: 56px;
 }
 
-#offcanvasTop .user-input {
+.buscar div {
+  margin-left: 15px;
+}
+
+.offcanvas-header-carrito {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+}
+.offcanvas-header-carrito button {
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -68,9 +68,10 @@ h1 {
 
 
     img {
+        padding-left: 10px;       
         margin: 0px;
-        height: 50px !important;
-        width: 50px !important;
+        height: 50px;
+        width: 50px;
     }
 
     #pNombre {
@@ -88,16 +89,17 @@ h1 {
 }
 
 #carrito-container {
-
     h2 {
-        padding: 20px;
-        padding-left: 0px;
+        padding: 10px;
+    }
+    button {
+        margin-left: 5px;
     }
 }
 
 #carrito {
     p {
-        padding-left: 0px;
+        padding-left: 10px;
     }
 }
 
@@ -250,28 +252,48 @@ a {
     border: none;
 }
 
-.user-input {
-    .btn-primary {
-        height: 56px;
-        width: 120px;
-    }
+.offcanvas-header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end
+}
+
+#loginForm {
+    display: flex;
+    justify-content: center;
 
     input {
+        margin-left: 15px;
         width: 250px;
     }
-}
 
-#offcanvasTop {
-    .header-user {
+    label {
+        margin-left: 15px;
+    }
+
+    button {
+        font-weight: 500;
         display: flex;
-        justify-content: center;
+        align-items: center;
+        margin-left: 15px;
+        margin-top: 1px;
+        width: 112px;
+        height: 56px;
     }
 }
 
-#offcanvasTop {
-    .user-input {
-        display: flex;
-        justify-content: center;
-        
+.buscar {
+    div {
+        margin-left: 15px;
+    }
+}
+
+.offcanvas-header-carrito {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        margin-top: 5px;
+        margin-right: 5px;
     }
 }
