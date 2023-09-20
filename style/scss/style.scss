@@ -68,7 +68,7 @@ h1 {
 
 
     img {
-        padding-left: 10px;       
+        padding-left: 10px;
         margin: 0px;
         height: 50px;
         width: 50px;
@@ -92,6 +92,7 @@ h1 {
     h2 {
         padding: 10px;
     }
+
     button {
         margin-left: 5px;
     }
@@ -296,4 +297,28 @@ a {
         margin-top: 5px;
         margin-right: 5px;
     }
+}
+
+.menuUsuario {
+    display: flex;
+    align-items: center;
+
+    span {
+        font-weight: 400;
+        color: white;
+    }
+}
+
+#cierreDeSesion {
+    height: 27px;
+    width: 30px;
+}
+
+#btnCierreDeSesion {
+    background-color: #212529;
+    border: none;
+}
+
+#btnCierreDeSesion:hover {
+    transform: scale(1.2);
 }

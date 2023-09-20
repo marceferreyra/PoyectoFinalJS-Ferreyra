@@ -263,4 +263,27 @@ a {
   margin-right: 5px;
 }
 
+.menuUsuario {
+  display: flex;
+  align-items: center;
+}
+.menuUsuario span {
+  font-weight: 400;
+  color: white;
+}
+
+#cierreDeSesion {
+  height: 27px;
+  width: 30px;
+}
+
+#btnCierreDeSesion {
+  background-color: #212529;
+  border: none;
+}
+
+#btnCierreDeSesion:hover {
+  transform: scale(1.2);
+}
+
 /*# sourceMappingURL=style.css.map */

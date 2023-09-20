@@ -336,27 +336,55 @@ presentacionItems.forEach((presentacionItem) => {
 
 //login
 
+let user = "Marce"
+let contraseña = "123456"
+
 const btnLogin = document.getElementById('btnLogin');
 btnLogin.addEventListener('click', iniciarSesion);
 
-function iniciarSesion() {
-    const username = document.getElementById('loginUsername').value;
-    const password = document.getElementById('loginPassword').value;
+const menuUsuario = document.querySelector('.menuUsuario');
+let bienvenidaUsuario;
+let sesionActiva = false;
 
-    if (username === 'Marce' && password === '123456') {
-            Swal.fire({
-            icon: 'success',
-            title: 'Inicio de sesión exitoso',
-            text: '¡Bienvenido, Marce!',
+function iniciarSesion() {
+    if (sesionActiva) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Sesión activa',
+            text: 'Ya hay una sesión activa. Cierra la sesión actual para iniciar con otra cuenta.',
             confirmButtonText: 'Aceptar',
             customClass: {
                 confirmButton: 'my-confirm-button',
             }
         });
-        const offcanvasTop = new bootstrap.Offcanvas(document.getElementById('offcanvasTop'));
-        offcanvasTop.hide();
+        return;
+    }
+
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+
+    if (username === user && password === contraseña) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Has iniciado sesión',
+            text: `¡Bienvenido, ${username}!`,
+            confirmButtonText: 'Aceptar',
+            customClass: {
+                confirmButton: 'my-confirm-button',
+            }
+        });
+
+        bienvenidaUsuario = document.createElement('span');
+        bienvenidaUsuario.innerHTML = `
+        ¡Bienvenido, ${username}! <button type="button" class="btn btn-primary" id="btnCierreDeSesion"><img src="./img/cerrarSesion.png" alt="cerrar sesion" id="cierreDeSesion"></button>`;
+        menuUsuario.appendChild(bienvenidaUsuario);
+
+        const btnSalir = document.getElementById('cierreDeSesion');
+        btnSalir.addEventListener('click', cerrarSesion);
+
+        sesionActiva = true;
     } else {
-            Swal.fire({
+        Swal.fire({
             icon: 'error',
             title: 'Ups!',
             text: 'Usuario o contraseña incorrectas.',
@@ -367,3 +395,18 @@ function iniciarSesion() {
         });
     }
 }
+
+function cerrarSesion() {
+    bienvenidaUsuario.innerHTML = '';
+    Swal.fire({
+        icon: 'info',
+        title: 'Sesión cerrada',
+        text: 'Hasta luego.',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+            confirmButton: 'my-confirm-button',
+        }
+    });
+    sesionActiva = false;
+}
+
