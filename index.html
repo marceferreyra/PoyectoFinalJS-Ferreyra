@@ -16,14 +16,43 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">L´Homme Parfum</a>
             <div>
-                <span class="navPersonalizadaUser "><img src="./img/userNuevo.png" alt=""> </span>
-                <button id="btn-carrito" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
-                    aria-label="Toggle navigation">
+                <button id="btn-user" class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                    <span class="navPersonalizadaUser "><img src="./img/userNuevo.png" alt=""> </span>
+                </button>
+
+                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop"
+                    aria-labelledby="offcanvasTopLabel">
+                    
+                    <div class="header-user">
+                        <div class="offcanvas-header">
+                            <div class="form-floating mb-3">
+                                <h5 class="offcanvas-title" id="offcanvasTopLabel">Iniciar sesión</h5>
+                            </div>
+                            <div class="form-floating mb-3"> <button type="button" class="btn-close"
+                                    data-bs-dismiss="offcanvas" aria-label="Close"></button></div>
+                        </div>
+                    </div>
+
+                    <div class="user-input">
+                        <div class="form-floating mb-3">
+                            <input type="user" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Usuario</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                    </div>
+                </div>
+
+                <button id="btn-carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+                    aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                     <span class="navPersonalizada"><img src="./img/carritoRemove.png" alt="carrito"></span>
                 </button>
             </div>
-            
+
             <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
                 aria-labelledby="offcanvasDarkNavbarLabel">
                 <div class="offcanvas-header">

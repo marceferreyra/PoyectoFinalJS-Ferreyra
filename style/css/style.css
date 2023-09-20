@@ -215,4 +215,27 @@ a {
   border: 1px solid #333;
 }
 
+#btn-user {
+  background-color: #212529;
+  border: none;
+}
+
+.user-input .btn-primary {
+  height: 56px;
+  width: 120px;
+}
+.user-input input {
+  width: 250px;
+}
+
+#offcanvasTop .header-user {
+  display: flex;
+  justify-content: center;
+}
+
+#offcanvasTop .user-input {
+  display: flex;
+  justify-content: center;
+}
+
 /*# sourceMappingURL=style.css.map */
