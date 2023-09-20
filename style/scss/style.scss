@@ -108,8 +108,13 @@ h1 {
 
 .navPersonalizada {
     img {
+        color: whitesmoke;
         height: 40px;
-        background-color: black;
+        background-color:#212529
+    }
+
+    img:hover {
+        transform: scale(1.2);
     }
 }
 
@@ -187,4 +192,8 @@ a {
 
 .menosCantidad {
     width: 35px;
+}
+
+.toastify {
+    box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.3), 0 10px 36px -4px rgba(0, 0, 0, 0.2);
 }
