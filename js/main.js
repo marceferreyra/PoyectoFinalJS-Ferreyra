@@ -22,7 +22,7 @@ function mostrarProductos(productos) {
                 <h5 class="card-title marca">${producto.marca}</h5>
                 <p class="card-text nombre">${producto.nombre}</p>
                 <h5 class="precio">$${producto.precio} - ${producto.presentacion}</h5>
-                <a href="#" class="btn btn-primary addCarrito" id="${producto.id}">Agregar al carrito</a>
+                ${productoEnCarrito(producto.id) ? `<a href="#" class="btn btn-primary addCarrito" id="${producto.id}"><img src="img/bolsaBlanco.webp" alt="bolsaCompra"></a>` : `<a href="#" class="btn btn-primary addCarrito" id="${producto.id}" data-original-text="Agregar al carrito">Agregar al carrito</a>`}
             </div>
         </div>`;
         fraganciasHombre.appendChild(cardPerfume);
@@ -39,6 +39,11 @@ function mostrarProductos(productos) {
 
     if (!localStorage.getItem('carrito')) {
         localStorage.setItem('carrito', JSON.stringify([]));
+    }
+    
+    function productoEnCarrito(id) {
+        const carrito = JSON.parse(localStorage.getItem('carrito'));
+        return carrito && carrito.some((producto) => producto.id === id);
     }
 }
 
@@ -72,6 +77,8 @@ function agregarAlCarrito(e, productos) {
             },
             duration: 1500
         }).showToast();
+        const boton = e.target;
+        boton.innerHTML = `<img src="img/bolsaBlanco.webp" alt="bolsaCompra">`;
     }
     mostrarCarrito();
     return;
@@ -177,6 +184,11 @@ function quitarProducto(e, carrito) {
     const nuevoCarrito = carrito.filter((producto) => producto.id !== productoId);
     localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
     mostrarCarrito();
+    
+    const boton = document.getElementById(productoId);
+    const originalText = boton.getAttribute('data-original-text');
+    boton.textContent = originalText;
+
     Toastify({
         text: "Item removido del carrito",
         style: {

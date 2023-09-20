@@ -175,4 +175,10 @@ a {
   box-shadow: 0 3px 6px -1px rgba(0, 0, 0, 0.3), 0 10px 36px -4px rgba(0, 0, 0, 0.2);
 }
 
+.addCarrito img {
+  height: 24px;
+  width: 122.916px;
+  object-fit: contain;
+}
+
 /*# sourceMappingURL=style.css.map */
