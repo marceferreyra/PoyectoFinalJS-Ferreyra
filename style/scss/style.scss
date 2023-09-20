@@ -118,6 +118,19 @@ h1 {
     }
 }
 
+.navPersonalizadaUser {
+    img {
+        color: whitesmoke;
+        height: 40px;
+        background-color: #212529
+    }
+
+    img:hover {
+        transform: scale(1.2);
+    }
+}
+
+
 .buscar {
     display: flex;
     justify-content: center;
@@ -205,3 +218,29 @@ a {
         object-fit: contain;
     }
 }
+
+#btn-carrito {
+    background-color: #212529;
+    border: none;
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #333;
+    cursor: default;
+}
+
+.btn-outline-secondary:hover {
+
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #333;
+    cursor: default;
+}
+
+.btn-outline-secondary:active {
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #333;
+  }
