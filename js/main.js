@@ -179,15 +179,19 @@ function modificarCantidadDesdeInput(e, carrito) {
     }
 }
 
+function restaurarTextoBoton(productoId) {
+    const boton = document.getElementById(productoId);
+    const originalText = boton.getAttribute('data-original-text');
+    boton.textContent = originalText;
+}
+
 function quitarProducto(e, carrito) {
     const productoId = parseInt(e.target.id);
     const nuevoCarrito = carrito.filter((producto) => producto.id !== productoId);
     localStorage.setItem('carrito', JSON.stringify(nuevoCarrito));
     mostrarCarrito();
 
-    const boton = document.getElementById(productoId);
-    const originalText = boton.getAttribute('data-original-text');
-    boton.textContent = originalText;
+    restaurarTextoBoton(productoId);
 
     Toastify({
         text: "Item removido del carrito",
@@ -229,13 +233,14 @@ botonFinalizarCompra.addEventListener("click", () => {
 
     if (carrito.length === 0) {
         Swal.fire({
-            title: "El carrito esta vacío. Agregue productos.",
+            title: "El carrito está vacío. Agregue productos.",
             confirmButtonText: "Aceptar",
             customClass: {
                 confirmButton: "my-confirm-button",
             },
         });
     } else {
+        const productoIds = carrito.map((producto) => producto.id);
         localStorage.removeItem("carrito");
         productos = [...productos];
         Swal.fire({
@@ -247,6 +252,10 @@ botonFinalizarCompra.addEventListener("click", () => {
             }
         });
         mostrarCarrito();
+
+        productoIds.forEach((productoId) => {
+            restaurarTextoBoton(productoId);
+        });
     }
 });
 
@@ -373,6 +382,14 @@ function iniciarSesion() {
                 confirmButton: 'my-confirm-button',
             }
         });
+        const userData = {
+            username: username,
+            password: password,
+
+        };
+
+        sessionStorage.setItem('username', username);
+        sessionStorage.setItem('password', password);
 
         bienvenidaUsuario = document.createElement('span');
         bienvenidaUsuario.innerHTML = `
@@ -397,6 +414,8 @@ function iniciarSesion() {
 }
 
 function cerrarSesion() {
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('password');
     bienvenidaUsuario.innerHTML = '';
     Swal.fire({
         icon: 'info',
