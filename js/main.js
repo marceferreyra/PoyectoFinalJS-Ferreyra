@@ -303,11 +303,12 @@ function mostrarResultadosFiltrados(productosFiltrados) {
                 <h5 class="card-title marca">${producto.marca}</h5>
                 <p class="card-text nombre">${producto.nombre}</p>
                 <h5 class="precio">$${producto.precio} - ${producto.presentacion}</h5>
-                <a href="#" class="btn btn-primary addCarrito" id="${producto.id}">Agregar al carrito</a>
+                <a href="#" class="btn btn-primary addCarrito" id="${producto.id}" data-original-text="Agregar al carrito">Agregar al carrito</a>
             </div>
         </div>`;
         fraganciasHombre.appendChild(cardPerfume);
     });
+
 
     const botonesAgregar = document.querySelectorAll(".addCarrito");
 
