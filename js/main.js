@@ -324,10 +324,14 @@ marcaItems.forEach((marcaItem) => {
     marcaItem.addEventListener("click", (e) => {
         e.preventDefault();
         const marcaSeleccionada = e.target.innerText;
-        const productosFiltrados = productos.filter((producto) =>
-            producto.marca.toLowerCase() === marcaSeleccionada.toLowerCase()
-        );
-        mostrarResultadosFiltrados(productosFiltrados);
+        if (marcaSeleccionada === "Todas las marcas") {
+            mostrarResultadosFiltrados(productos);
+        } else {
+            const productosFiltrados = productos.filter((producto) =>
+                producto.marca.toLowerCase() === marcaSeleccionada.toLowerCase()
+            );
+            mostrarResultadosFiltrados(productosFiltrados);
+        }
     });
 });
 
@@ -336,10 +340,14 @@ presentacionItems.forEach((presentacionItem) => {
     presentacionItem.addEventListener("click", (e) => {
         e.preventDefault();
         const presentacionSeleccionada = e.target.innerText;
-        const productosFiltrados = productos.filter((producto) =>
-            producto.presentacion.toLowerCase() === presentacionSeleccionada.toLowerCase()
-        );
-        mostrarResultadosFiltrados(productosFiltrados);
+        if (presentacionSeleccionada === "Todas las presentaciones") {
+            mostrarResultadosFiltrados(productos); 
+        } else {
+            const productosFiltrados = productos.filter((producto) =>
+                producto.presentacion.toLowerCase() === presentacionSeleccionada.toLowerCase()
+            );
+            mostrarResultadosFiltrados(productosFiltrados);
+        }
     });
 });
 
