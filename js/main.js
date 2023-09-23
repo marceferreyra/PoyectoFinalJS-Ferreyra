@@ -28,6 +28,7 @@ function mostrarProductos(productos) {
         fraganciasHombre.appendChild(cardPerfume);
 
     });
+
     const botonesAgregar = document.querySelectorAll(".addCarrito");
 
     botonesAgregar.forEach((boton) => {
@@ -206,8 +207,6 @@ function quitarProducto(e, carrito) {
     }).showToast();
 }
 
-
-
 function calcularTotalCarrito() {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let total = 0;
@@ -308,7 +307,6 @@ function mostrarResultadosFiltrados(productosFiltrados) {
         </div>`;
         fraganciasHombre.appendChild(cardPerfume);
     });
-
 
     const botonesAgregar = document.querySelectorAll(".addCarrito");
 
