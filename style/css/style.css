@@ -332,4 +332,8 @@ footer div p {
   transform: scale(1.1);
 }
 
+#sinResultados {
+  transform: translate(0px, -45px);
+}
+
 /*# sourceMappingURL=style.css.map */
