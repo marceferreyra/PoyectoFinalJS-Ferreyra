@@ -13,6 +13,17 @@ fetch(url)
 
 const fraganciasHombre = document.querySelector(`#fraganciasHombre`);
 
+class Perfumes {
+    constructor(id, marca, nombre, precio, imagen, presentacion) {
+      this.id = id;
+      this.marca = marca;
+      this.nombre = nombre;
+      this.precio = precio;
+      this.imagen = imagen;
+      this.presentacion = presentacion;
+    }
+  }
+
 function mostrarProductos(productos) {
     productos.forEach((producto) => {
         const cardPerfume = document.createElement("div");
